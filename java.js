@@ -30,8 +30,8 @@ document.querySelectorAll(".read-btn").forEach((btn, index)=>{
       const newImg = document.createElement("img");
 
       const images=[
-        "images/bloosm.jpg",
-        "images/pink dairy.jpg"
+        "/images/bloosm.jpg",
+        "/images/pink dairy.jpg"
       ];
 
       newImg.src = images[index];
