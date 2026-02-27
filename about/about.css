@@ -1,0 +1,174 @@
+:root{
+ --primary:#0f172a;
+ --secondary:#f59e0b;
+ --background:#f8fafc;
+ --card:#ffffff;
+ --text:#1e293b;
+ --light-text:#64748b;
+ --border:#e2e8f0;
+}
+
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+nav{
+ height:70px;
+ width:100%;
+ background:var(--primary);
+ color:white;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:0 40px;
+ box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.left{
+ font-size:1.4rem;
+ font-weight:600;
+}
+
+.right ul{
+ display:flex;
+ align-items:center;
+ list-style:none;
+ gap:60px;
+ font-weight:600;
+ font-size:1.2rem;
+}
+
+.right ul a{
+ color:white;
+ text-decoration:none;
+ transition:.3s;
+}
+
+.right ul a:hover{
+ color:var(--secondary);
+}
+
+.admin-btn{
+ padding:6px 14px;
+ border-radius:6px;
+ font-weight:600;
+ background:white;
+ color:var(--primary);
+ text-decoration:none;
+ transition:.3s;
+}
+
+.admin-btn:hover{
+ background:var(--secondary);
+ color:white;
+}
+
+main{
+ width:100%;
+}
+
+.about-section{
+ opacity:0;
+ transition:1s;
+ text-align:center;
+ padding:20px;
+}
+
+.about-section h4{
+ color:var(--primary);
+ font-size:1.2rem;
+ margin-top:30px;
+}
+
+.about-section p{
+ color:var(--secondary);
+ margin:10px 40px;
+}
+
+.about-section{
+  opacity:0;
+  transition: opacity 1s ease-in-out;
+}
+
+.about-section img{
+ display:block;
+ margin:20px auto;
+ max-width:50%;
+ height:auto;
+ border-radius:12px;
+}
+
+footer{
+ background:var(--primary);
+ color:var(--secondary);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:30px;
+ margin-top:150px;
+}
+
+.footer-col h3{
+ color:white;
+ margin-bottom:5px;
+}
+
+.footer-col ul{
+ list-style:none;
+}
+
+.footer-col li{
+ margin:5px 0;
+ cursor:pointer;
+}
+
+.footer-col li:hover{
+ color:var(--background);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+/* navbar */
+.right{
+ position:absolute;
+ top:70px;
+ left:0;
+ width:100%;
+ background:var(--primary);
+ display:none;
+}
+
+.right.active{
+ display:block;
+}
+
+.right ul{
+ flex-direction:column;
+ gap:20px;
+ padding:20px;
+}
+
+.right.active{
+ transform:translateX(0);
+}
+
+/* about */
+.about-section p{
+ margin:10px;
+}
+
+/* footer */
+footer{
+ flex-direction:column;
+ text-align:center;
+ gap:20px;
+}
+
+}

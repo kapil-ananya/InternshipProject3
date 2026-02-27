@@ -1,0 +1,183 @@
+:root{
+ --primary:#0f172a;
+ --secondary:#f59e0b;
+ --background:#f8fafc;
+ --card:#ffffff;
+ --text:#1e293b;
+ --light-text:#64748b;
+ --border:#e2e8f0;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Cambria, serif;
+}
+
+
+nav{
+height:70px;
+width:100%;
+background:var(--primary);
+color:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 40px;
+}
+
+.left{
+font-size:1.4rem;
+font-weight:600;
+}
+
+.right ul{
+display:flex;
+gap:60px;
+list-style:none;
+}
+
+.right ul a{
+color:white;
+text-decoration:none;
+font-weight:600;
+}
+
+.right ul a:hover{
+color:var(--secondary);
+}
+
+.admin-btn{
+padding:6px 14px;
+border-radius:6px;
+background:white;
+color:var(--primary);
+text-decoration:none;
+font-weight:600;
+}
+
+.admin-btn:hover{
+background:var(--secondary);
+color:white;
+}
+
+.contact-section{
+max-width:320px;
+margin:80px auto;
+padding:20px;
+border-radius:12px;
+border:2px solid var(--secondary);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+.contact-section h5{
+color:var(--secondary);
+margin-bottom:10px;
+}
+
+.contact-section h6{
+margin:10px 0;
+color:var(--text);
+}
+
+.contact-section p{
+color:var(--light-text);
+}
+
+
+#or{
+text-align:center;
+margin-top:10px;
+}
+
+.divider{
+width:60%;
+margin:20px auto;
+}
+
+
+.icons-container ul{
+display:flex;
+justify-content:center;
+gap:40px;
+list-style:none;
+margin-bottom:40px;
+}
+
+.icons-container img{
+width:45px;
+transition:.3s;
+cursor:pointer;
+}
+
+.icons-container img:hover{
+transform:scale(1.2);
+}
+
+
+footer{
+background:var(--primary);
+color:white;
+display:flex;
+justify-content:space-around;
+padding:30px 0;
+flex-wrap:wrap;
+}
+
+.footer-col h3{
+margin-bottom:10px;
+}
+
+.footer-col ul{
+list-style:none;
+}
+
+.footer-col li{
+margin:5px 0;
+cursor:pointer;
+}
+
+.footer-col li:hover{
+color:var(--secondary);
+}
+
+
+
+@media(max-width:768px){
+
+    .right{
+ position:absolute;
+ top:70px;
+ left:0;
+ width:100%;
+ background:var(--primary);
+ display:none;
+}
+
+.right.active{
+ display:block;
+}
+
+.right ul{
+flex-direction:column;
+padding:20px;
+gap:20px;
+}
+
+.right ul a{
+color:black;
+}
+
+.right.active{
+display:block;
+}
+
+footer{
+ flex-direction:column;
+ text-align:center;
+ gap:20px;
+}
+
+}
