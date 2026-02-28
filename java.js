@@ -29,10 +29,10 @@ document.querySelectorAll(".read-btn").forEach((btn, index)=>{
 
       const newImg = document.createElement("img");
 
-      const images=[
-        "/images/bloosm.jpg",
-        "/images/pink dairy.jpg"
-      ];
+      const images = [
+  "images/blossom.jpg",
+  "images/pink-dairy.jpg"
+];
 
       newImg.src = images[index];
       newImg.style.width="100%";
