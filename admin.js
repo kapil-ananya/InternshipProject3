@@ -1,14 +1,21 @@
-// menu toggle
-document.getElementById("hamburger").onclick = () =>{
-  document.getElementById("menu").classList.toggle("show");
-};
+document.addEventListener("DOMContentLoaded", function () {
 
+  const modalEl = document.getElementById("myModal");
+  const form = document.getElementById("form");
+  const deleteAllBtn = document.getElementById("deleteAll");
+  const userData = document.getElementById("userData");
 
-// data array
-let users = [];
+  let users = [];
 
-// add user
-document.getElementById("form").onsubmit = function(e){
+  // 🔹 When modal closes → focus back to Add User button
+  modalEl.addEventListener("hidden.bs.modal", function () {
+    const triggerBtn = document.querySelector('[data-bs-target="#myModal"]');
+    if (triggerBtn) {
+      triggerBtn.focus();
+    }
+  });
+
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   let name = document.getElementById("name").value;
@@ -16,41 +23,50 @@ document.getElementById("form").onsubmit = function(e){
   let comments = document.getElementById("comments").value;
   let img = document.getElementById("file").value;
 
-  users.push({name,likes,comments,img});
+  users.push({ name, likes, comments, img });
 
   showUsers();
-  this.reset();
-};
+  form.reset();
 
+  document.activeElement.blur();  // remove focus from Save button
 
-// show table
-function showUsers(){
-  let data = "";
-  users.forEach((u,i)=>{
-    data += `
-      <tr>
-        <td>${u.name}</td>
-        <td>${u.likes}</td>
-        <td>${u.comments}</td>
-        <td><img src="${u.img}" width="60"></td>
-        <td><button onclick="del(${i})">❌</button></td>
-      </tr>
-    `;
+  const modal = bootstrap.Modal.getInstance(modalEl);
+  modal.hide();
+});
+
+  // 🔹 Show Users in table
+  function showUsers() {
+    let data = "";
+
+    users.forEach((u, i) => {
+      data += `
+        <tr>
+          <td>${u.name}</td>
+          <td>${u.likes}</td>
+          <td>${u.comments}</td>
+          <td><img src="${u.img}" width="60"></td>
+          <td>
+            <button class="btn btn-sm btn-danger" onclick="delUser(${i})">
+              close
+            </button>
+          </td>
+        </tr>
+      `;
+    });
+
+    userData.innerHTML = data;
+  }
+
+  // 🔹 Delete One
+  window.delUser = function (i) {
+    users.splice(i, 1);
+    showUsers();
+  };
+
+  // 🔹 Delete All
+  deleteAllBtn.addEventListener("click", function () {
+    users = [];
+    showUsers();
   });
 
-  document.getElementById("userData").innerHTML = data;
-}
-
-
-// delete one
-function del(i){
-  users.splice(i,1);
-  showUsers();
-}
-
-
-// delete all
-document.getElementById("deleteAll").onclick = ()=>{
-  users=[];
-  showUsers();
-};
+});
