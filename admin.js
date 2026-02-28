@@ -34,7 +34,7 @@ form.addEventListener("submit", function (e) {
   modal.hide();
 });
 
-  // 🔹 Show Users in table
+  //Show Users in table
   function showUsers() {
     let data = "";
 
