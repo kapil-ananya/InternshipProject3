@@ -30,8 +30,8 @@ document.querySelectorAll(".read-btn").forEach((btn, index)=>{
       const newImg = document.createElement("img");
 
       const images = [
-  "images/blossom.jpg",
-  "images/pink-dairy.jpg"
+  "images/bloosm.jpg",
+  "images/pink dairy.jpg"
 ];
 
       newImg.src = images[index];
@@ -48,11 +48,11 @@ document.querySelectorAll(".read-btn").forEach((btn, index)=>{
 
 });
 
-
-const section = document.querySelector(".about-section");
-
-window.addEventListener("load",()=>{
-  section.style.opacity="1";
+window.addEventListener("load", () => {
+  const section = document.querySelector(".about-section");
+  if (section) {
+    section.style.opacity = "1";
+  }
 });
 
 const links=[
